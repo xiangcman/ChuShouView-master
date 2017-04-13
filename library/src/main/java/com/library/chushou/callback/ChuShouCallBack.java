@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by xiangcheng on 17/3/24.
+ * 用来处理recyclerView里面item的swipe动作
  */
 
 public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
@@ -29,16 +30,17 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
      */
     private boolean pullDown;
 
-    public void setOnSwipedListener(OnSwipedListener onSwipedListener) {
-        this.onSwipedListener = onSwipedListener;
-    }
-
     private OnSwipedListener onSwipedListener;
 
     /**
      * 下一个要展示的view，如果是向下拉的话，就是上一个view，如果是往上拉的话就是下一个view
      */
     private View nextView;
+
+    public void setOnSwipedListener(OnSwipedListener onSwipedListener) {
+        this.onSwipedListener = onSwipedListener;
+    }
+
 
     public ChuShouCallBack(RecyclerView.Adapter adapter, List mDatas) {
         this(adapter, mDatas, 0);
@@ -60,6 +62,9 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         return true;
     }
 
+    /**
+     * 用来处理onswipe时候的回调接口
+     */
     public interface OnSwipedListener {
         void onSwiped();
     }
@@ -67,13 +72,17 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         Log.d(TAG, "onSwiped");
-
         refreshData(viewHolder);
         if (onSwipedListener != null) {
             onSwipedListener.onSwiped();
         }
     }
 
+    /**
+     * 处理swipe时候view的还原以及数据源的刷新
+     *
+     * @param viewHolder
+     */
     private void refreshData(RecyclerView.ViewHolder viewHolder) {
         //将当前的item进行还原
         viewHolder.itemView.setAlpha(1);
@@ -107,7 +116,9 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
 
     }
 
-    //此种方式是原来自己想的一种方式，也可以改变选中的item的样式
+    /**
+     * 监听recyclerView切换item的事件
+     */
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         if (height == 0) {

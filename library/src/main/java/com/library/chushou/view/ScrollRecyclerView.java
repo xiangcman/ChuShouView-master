@@ -9,6 +9,7 @@ import com.library.chushou.callback.ChuShouCallBack;
 
 /**
  * Created by xiangcheng on 17/4/13.
+ * 父RecyclerView：主要是接收自己的chuShouCallBack，没什么好说的
  */
 
 public class ScrollRecyclerView extends RecyclerView {
@@ -26,8 +27,8 @@ public class ScrollRecyclerView extends RecyclerView {
         super(context, attrs, defStyle);
     }
 
-    public void setChuShouCallBack(ChuShouCallBack chuShouCallBack){
-        this.chuShouCallBack=chuShouCallBack;
+    public void setChuShouCallBack(ChuShouCallBack chuShouCallBack) {
+        this.chuShouCallBack = chuShouCallBack;
     }
 
     public ChuShouCallBack getChuShouCallBack() {

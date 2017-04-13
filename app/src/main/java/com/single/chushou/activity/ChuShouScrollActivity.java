@@ -18,6 +18,7 @@ import java.util.Random;
 
 /**
  * Created by xiangcheng on 17/4/12.
+ * 带有滑动结构
  */
 
 public class ChuShouScrollActivity extends Activity {
@@ -39,7 +40,6 @@ public class ChuShouScrollActivity extends Activity {
 
         chuShouView.setAdapter(adapter);
         chuShouView.setChuShouCallBack(callback);
-
     }
 
 

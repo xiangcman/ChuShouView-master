@@ -15,11 +15,14 @@ import com.library.chushou.manager.TotalHeightLayoutManager;
 
 /**
  * Created by xiangcheng on 17/4/13.
+ * 子recyclerView，用来处理ChuShouCallBack是否有swipe动作
  */
 
 public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.OnSwipedListener {
     private static final String TAG = SlideRecyclerView.class.getSimpleName();
-
+    /**
+     * 当前y轴滑动的位置
+     */
     private int scrollY;
 
     ChuShouCallBack chuShouCallBack;
@@ -28,19 +31,16 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
 
     ViewGroup parent;
 
-
     public SlideRecyclerView(Context context) {
         this(context, null);
     }
 
     public SlideRecyclerView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
-
     }
 
     public SlideRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -60,19 +60,18 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                             Log.d(TAG, "onScrolled:" + dy);
                             scrollY += dy;
                             Log.d(TAG, "scrollY:" + scrollY);
-//                        ViewHolder vh = sr.getChildViewHolder(parent);
-//                        if (getIsCurrentItem()) {
                             if (scrollY == 0) {
+                                //如果父recyclerView已经在顶部并且还往上滑的时候，让chuShouCallBack没有swipe动作
                                 if (dy < 0) {
                                     chuShouCallBack.setDefaultSwipeDirs(0);
                                 }
                             }
                             if (isSlideToBottom()) {
+                                //如果父recyclerView已经在底部并且还往下拉的时候，让chuShouCallBack没有swipe动作
                                 if (dy > 0) {
                                     chuShouCallBack.setDefaultSwipeDirs(0);
                                 }
                             }
-//                        }
                         }
                     });
                 }
@@ -94,7 +93,6 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                 case MotionEvent.ACTION_MOVE:
                     dataY = e.getY() - startY;
                     //只有滑动到顶部的时候才会通过判断两点之间的距离来切换item
-//                if (getIsCurrentItem()) {
                     if (scrollY == 0) {
                         if (dataY > 0) {
                             chuShouCallBack.setDefaultSwipeDirs(ItemTouchHelper.UP | ItemTouchHelper.DOWN);
@@ -114,13 +112,15 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                     break;
 
                 case MotionEvent.ACTION_UP:
-//                scrollY = 0;
                     break;
             }
         }
         return super.onTouchEvent(e);
     }
 
+    /**
+     * 初始化chuShouCallBack
+     */
     private void initView() {
         parent = (ViewGroup) getParent();
         ViewGroup vp = (ViewGroup) parent.getParent();
@@ -133,6 +133,11 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
         }
     }
 
+    /**
+     * 判断当前正在显示的item
+     *
+     * @return
+     */
     private boolean getIsCurrentItem() {
         ViewHolder vh = sr.getChildViewHolder(parent);
         if (vh.getAdapterPosition() == 0) {
@@ -141,6 +146,11 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
         return false;
     }
 
+    /**
+     * 判断父RecyclerView是否到了底部
+     *
+     * @return
+     */
     public boolean isSlideToBottom() {
         LayoutManager lm = getLayoutManager();
         if (lm instanceof TotalHeightLayoutManager) {
@@ -149,18 +159,11 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
             Log.d(TAG, "totalHeight:" + totalHeight);
             Log.d(TAG, "getHeight():" + getHeight());
             Log.d(TAG, "scrollY:" + scrollY);
-
             if (totalHeight - getHeight() == scrollY) {
                 return true;
             }
         }
         return false;
-//        if (recyclerView == null) return false;
-//        if (computeVerticalScrollExtent() + computeVerticalScrollOffset()
-//                >= computeVerticalScrollRange())
-//            return true;
-//        return false;
-
     }
 
     @Override

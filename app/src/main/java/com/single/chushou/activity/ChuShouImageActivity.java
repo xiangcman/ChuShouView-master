@@ -13,6 +13,9 @@ import com.single.chushou.adapter.ChuShouAdapter;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 没有滑动的activity
+ */
 public class ChuShouImageActivity extends Activity {
 
     private List<Integer> maps = Arrays.asList(R.mipmap.chushou1, R.mipmap.chushou2, R.mipmap.chushou3, R.mipmap.chushou4);

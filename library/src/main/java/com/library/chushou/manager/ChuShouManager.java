@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by xiangcheng on 17/4/11.
+ * 初始化所有item的位置
  */
 
 public class ChuShouManager extends RecyclerView.LayoutManager {
@@ -19,7 +20,7 @@ public class ChuShouManager extends RecyclerView.LayoutManager {
             measureChildWithMargins(childAt, 0, 0);
             addView(childAt);
             if (getChildCount() >= 1) {
-                //放在中间
+                //第一个item放在中间
                 if (i == 0) {
                     layoutDecoratedWithMargins(childAt, 0, 0,
                             getDecoratedMeasuredWidth(childAt),
@@ -27,16 +28,15 @@ public class ChuShouManager extends RecyclerView.LayoutManager {
                 }
             }
             if (getChildCount() >= 2) {
-                //放在下面
+                //从第二个item到倒数第二个放在下面
                 if (i >= 1 && i < getItemCount() - 1) {
                     layoutDecoratedWithMargins(childAt, 0, getHeight(),
                             getDecoratedMeasuredWidth(childAt),
                             getHeight() + getDecoratedMeasuredHeight(childAt));
                 }
             }
-
             if (getChildCount() >= 3) {
-                //最后一个view放在最上面
+                //最后一个item放在最上面
                 if (i == getItemCount() - 1) {
                     layoutDecoratedWithMargins(childAt, 0, -getDecoratedMeasuredHeight(childAt),
                             getDecoratedMeasuredWidth(childAt),

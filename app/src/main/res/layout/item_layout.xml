@@ -5,16 +5,10 @@
     android:background="#cccccc"
     android:orientation="vertical">
 
-    <!--<com.library.chushou.view.ChuShouScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY" />
-
-    <!--</com.library.chushou.view.ChuShouScrollView>-->
 
 </LinearLayout>
