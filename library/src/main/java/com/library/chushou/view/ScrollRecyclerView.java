@@ -1,9 +1,11 @@
-package com.library.chushou;
+package com.library.chushou.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+
+import com.library.chushou.callback.ChuShouCallBack;
 
 /**
  * Created by xiangcheng on 17/4/13.

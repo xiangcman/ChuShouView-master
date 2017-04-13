@@ -1,4 +1,4 @@
-package com.library.chushou;
+package com.library.chushou.manager;
 
 import android.support.v7.widget.RecyclerView;
 

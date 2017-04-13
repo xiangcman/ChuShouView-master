@@ -1,4 +1,4 @@
-package com.single.chushou;
+package com.single.chushou.activity;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-import com.library.chushou.ChuShouCallBack;
-import com.library.chushou.ChuShouManager;
-import com.library.chushou.ScrollRecyclerView;
+import com.library.chushou.callback.ChuShouCallBack;
+import com.library.chushou.manager.ChuShouManager;
+import com.library.chushou.view.ScrollRecyclerView;
+import com.single.chushou.R;
+import com.single.chushou.adapter.ChuShouScrollAdapter;
+import com.single.chushou.data.DataConfig;
 
 import java.util.List;
 import java.util.Random;
@@ -18,7 +21,6 @@ import java.util.Random;
  */
 
 public class ChuShouScrollActivity extends Activity {
-//    List<String[]> items;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,9 +29,6 @@ public class ChuShouScrollActivity extends Activity {
 
         ScrollRecyclerView chuShouView = (ScrollRecyclerView) findViewById(R.id.chushou_view);
         chuShouView.setLayoutManager(new ChuShouManager());
-//        chuShouView.setLayoutManager(new li());
-//        items = new ArrayList<>();
-//        initData();
         ChuShouScrollAdapter adapter;
         List<List<ShowItem>> items = DataConfig.getItems();
 
@@ -45,8 +44,8 @@ public class ChuShouScrollActivity extends Activity {
 
 
     public static class ShowItem {
-        int color;
-        String des;
+        public int color;
+        public String des;
 
         public ShowItem(String des) {
             this.des = des;

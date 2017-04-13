@@ -4,9 +4,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.single.chushou.ChuShouImageActivity">
+    tools:context="com.single.chushou.activity.ChuShouImageActivity">
 
-    <com.library.chushou.ScrollRecyclerView
+    <com.library.chushou.view.ScrollRecyclerView
         android:id="@+id/chushou_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

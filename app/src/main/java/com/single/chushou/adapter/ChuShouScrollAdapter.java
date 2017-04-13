@@ -1,4 +1,4 @@
-package com.single.chushou;
+package com.single.chushou.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.library.chushou.SlideRecyclerView;
+import com.library.chushou.view.SlideRecyclerView;
+import com.single.chushou.activity.ChuShouScrollActivity;
+import com.single.chushou.manager.FlowLayoutManager;
+import com.single.chushou.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.library.chushou;
+package com.library.chushou.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

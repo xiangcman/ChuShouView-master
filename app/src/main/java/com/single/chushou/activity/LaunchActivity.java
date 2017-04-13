@@ -1,10 +1,12 @@
-package com.single.chushou;
+package com.single.chushou.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.single.chushou.R;
 
 /**
  * Created by xiangcheng on 17/4/12.

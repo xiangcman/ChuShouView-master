@@ -1,4 +1,6 @@
-package com.single.chushou;
+package com.single.chushou.data;
+
+import com.single.chushou.activity.ChuShouScrollActivity;
 
 import java.util.ArrayList;
 import java.util.List;

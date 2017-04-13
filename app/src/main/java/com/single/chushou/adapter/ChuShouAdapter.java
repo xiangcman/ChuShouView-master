@@ -1,10 +1,12 @@
-package com.single.chushou;
+package com.single.chushou.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.single.chushou.R;
 
 import java.util.List;
 

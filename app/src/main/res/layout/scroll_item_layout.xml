@@ -5,7 +5,7 @@
     android:background="#cccccc"
     android:orientation="vertical">
 
-    <com.library.chushou.SlideRecyclerView
+    <com.library.chushou.view.SlideRecyclerView
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

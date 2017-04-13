@@ -1,11 +1,11 @@
-package com.single.chushou;
+package com.single.chushou.manager;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.library.chushou.TotalHeightLayoutManager;
+import com.library.chushou.manager.TotalHeightLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;

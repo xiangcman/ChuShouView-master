@@ -1,4 +1,4 @@
-package com.library.chushou;
+package com.library.chushou.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+
+import com.library.chushou.callback.ChuShouCallBack;
+import com.library.chushou.manager.TotalHeightLayoutManager;
 
 /**
  * Created by xiangcheng on 17/4/13.
