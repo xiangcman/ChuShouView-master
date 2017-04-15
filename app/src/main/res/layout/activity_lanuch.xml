@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <Button
         android:id="@+id/cs_img"
@@ -15,5 +16,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="仿触手首页-滑动式" />
+
+    <Button
+        android:id="@+id/gd_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仿触手首页-多种样式" />
 
 </LinearLayout>

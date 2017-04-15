@@ -15,6 +15,7 @@
         <activity android:name=".activity.ChuShouScrollActivity">
 
         </activity>
+        <activity android:name=".activity.ChuShouGridActivity" />
 
         <activity android:name=".activity.LaunchActivity">
             <intent-filter>

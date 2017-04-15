@@ -15,7 +15,7 @@ import java.util.List;
  * 一种流式布局的LayoutManager
  */
 
-public class FlowLayoutManager extends TotalHeightLayoutManager {
+public class FlowLayoutManager extends RecyclerView.LayoutManager implements TotalHeightLayoutManager {
 
     final FlowLayoutManager self = this;
 

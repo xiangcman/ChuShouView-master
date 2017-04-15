@@ -15,8 +15,8 @@
         <ImageView
             android:id="@+id/img1"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:src="@mipmap/wall01" />
+            android:layout_height="160dp"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/text1"
@@ -37,8 +37,8 @@
         <ImageView
             android:id="@+id/img2"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:src="@mipmap/wall01" />
+            android:layout_height="160dp"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/text2"

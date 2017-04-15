@@ -30,5 +30,12 @@ public class LaunchActivity extends AppCompatActivity {
                 startActivity(new Intent(LaunchActivity.this, ChuShouScrollActivity.class));
             }
         });
+
+        findViewById(R.id.gd_scroll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LaunchActivity.this, ChuShouGridActivity.class));
+            }
+        });
     }
 }

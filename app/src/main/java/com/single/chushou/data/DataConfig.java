@@ -1,5 +1,7 @@
 package com.single.chushou.data;
 
+import com.single.chushou.R;
+import com.single.chushou.activity.ChuShouGridActivity;
 import com.single.chushou.activity.ChuShouScrollActivity;
 
 import java.util.ArrayList;
@@ -100,7 +102,6 @@ public class DataConfig {
         showItems2.add(new ChuShouScrollActivity.ShowItem("李逵"));
         showItems2.add(new ChuShouScrollActivity.ShowItem("史进"));
         showItems2.add(new ChuShouScrollActivity.ShowItem("穆弘"));
-        showItems2.add(new ChuShouScrollActivity.ShowItem("6.C#"));
         showItems2.add(new ChuShouScrollActivity.ShowItem("雷横"));
         showItems2.add(new ChuShouScrollActivity.ShowItem("李俊"));
         showItems2.add(new ChuShouScrollActivity.ShowItem("阮小二"));
@@ -191,10 +192,150 @@ public class DataConfig {
         showItems3.add(new ChuShouScrollActivity.ShowItem("旱地忽律"));
         showItems3.add(new ChuShouScrollActivity.ShowItem("笑面虎"));
         showItems3.add(new ChuShouScrollActivity.ShowItem("铁臂膊"));
-//        }));
+
+        List<ChuShouScrollActivity.ShowItem> showItems4 = new ArrayList<>();
+        showItems4.add(new ChuShouScrollActivity.ShowItem("中箭虎"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("小遮拦"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("操刀鬼"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("云里金刚"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("摸着天"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("病大虫"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("金眼彪"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("打虎将"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("小霸王"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("金钱豹子"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("鬼脸儿"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("出林龙"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("独角龙"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("旱地忽律"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("笑面虎"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("铁臂膊"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("神机军师"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("镇三山"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("病尉迟"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("丑郡马"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("井木犴"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("百胜将"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("天目将"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("圣水将/圣水将军"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("神火将/神火将军"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("圣手书生"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("铁面孔目"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("摩云金翅"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("火眼狻猊"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("锦毛虎"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("锦豹子"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("轰天雷"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("神算子"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("小温侯"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("赛仁贵"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("神医"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("紫髯伯"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("矮脚虎"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("一丈青"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("丧门神"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("混世魔王"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("毛头星"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("独火星"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("八臂哪吒"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("飞天大圣"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("玉臂匠"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("铁笛仙"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("出洞蛟"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("翻江蜃"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("玉幡竿"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("通臂猿"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("跳涧虎"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("白花蛇"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("白面郎君"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("九尾龟"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("铁扇子"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("铁叫子"));
+        showItems4.add(new ChuShouScrollActivity.ShowItem("花项虎"));
+
         lists.add(showItems);
         lists.add(showItems2);
         lists.add(showItems3);
+        lists.add(showItems4);
         return lists;
+    }
+
+    public static List<List<ChuShouGridActivity.GridItem>> getGridItems() {
+        List<List<ChuShouGridActivity.GridItem>> gridItems = new ArrayList<>();
+
+        List<ChuShouGridActivity.GridItem> gridItems1 = new ArrayList<>();
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01", R.mipmap.wall10, "R.mipmap.wall10"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05", R.mipmap.wall08, "R.mipmap.wall08"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall06, "R.mipmap.wall06"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall07, "R.mipmap.wall07"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall08, "R.mipmap.wall08"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall09, "R.mipmap.wall09"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall10, "R.mipmap.wall10"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems1.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+
+        List<ChuShouGridActivity.GridItem> gridItems2 = new ArrayList<>();
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall06, "R.mipmap.wall06"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall07, "R.mipmap.wall07"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall08, "R.mipmap.wall08"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall09, "R.mipmap.wall09"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall10, "R.mipmap.wall10", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems2.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+
+
+        List<ChuShouGridActivity.GridItem> gridItems3 = new ArrayList<>();
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall06, "R.mipmap.wall06"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall07, "R.mipmap.wall07"));
+        gridItems3.add(new ChuShouGridActivity.GridItem(R.mipmap.wall08, "R.mipmap.wall08"));
+
+        List<ChuShouGridActivity.GridItem> gridItems4 = new ArrayList<>();
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall06, "R.mipmap.wall06"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall07, "R.mipmap.wall07", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall08, "R.mipmap.wall08"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall09, "R.mipmap.wall09"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall10, "R.mipmap.wall10"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall02, "R.mipmap.wall02", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall03, "R.mipmap.wall03"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall04, "R.mipmap.wall04", R.mipmap.wall01, "R.mipmap.wall01"));
+        gridItems4.add(new ChuShouGridActivity.GridItem(R.mipmap.wall05, "R.mipmap.wall05"));
+
+        gridItems.add(gridItems1);
+        gridItems.add(gridItems2);
+        gridItems.add(gridItems3);
+        gridItems.add(gridItems4);
+
+        return gridItems;
     }
 }
