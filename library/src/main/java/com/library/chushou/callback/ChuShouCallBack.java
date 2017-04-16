@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.library.chushou.view.SlideRecyclerView;
+
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -66,7 +69,7 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
      * 用来处理onswipe时候的回调接口
      */
     public interface OnSwipedListener {
-        void onSwiped();
+        void onSwiped(boolean pullDown);
     }
 
     @Override
@@ -74,7 +77,7 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         Log.d(TAG, "onSwiped");
         refreshData(viewHolder);
         if (onSwipedListener != null) {
-            onSwipedListener.onSwiped();
+            onSwipedListener.onSwiped(pullDown);
         }
     }
 
@@ -92,24 +95,11 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         if (pullDown) {
             //将上面移动的进行还原
             nextView.setTranslationY(-height);
-            //将集合整体往后移一位[i+1]=[i]
-            int length = mDatas.size();
-            //把最后一个给保存起来
-            temp = mDatas.get(length - 1);
-            for (int j = length - 2; j >= 0; j--) {
-                mDatas.set(j + 1, mDatas.get(j));
-            }
-            mDatas.set(0, temp);
-
+            Collections.rotate(mDatas, 1);
         } else {
             //将下面移动的进行还原
             nextView.setTranslationY(height);
-            //将集合整体往前移一位[i]=[i+1]
-            temp = mDatas.get(0);
-            for (int i = 0; i < mDatas.size() - 1; i++) {
-                mDatas.set(i, mDatas.get(i + 1));
-            }
-            mDatas.set(mDatas.size() - 1, temp);
+            Collections.rotate(mDatas, -1);
         }
         //刷新item
         mAdapter.notifyDataSetChanged();
@@ -133,6 +123,11 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         //往下拉
         if (dY > 0) {
             nextView = recyclerView.getChildAt(recyclerView.getChildCount() - 1);
+            View childAt = ((ViewGroup) nextView).getChildAt(0);
+            if (childAt instanceof SlideRecyclerView) {
+                SlideRecyclerView sl = (SlideRecyclerView) childAt;
+                sl.pullNextScroll();
+            }
             pullDown = true;
         } else {
             nextView = recyclerView.getChildAt(1);

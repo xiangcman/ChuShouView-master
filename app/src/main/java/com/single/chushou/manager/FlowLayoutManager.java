@@ -84,7 +84,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager implements Tot
         width = getWidth();
         height = getHeight();
         totalHeight = 0;
-        Log.d("TAG", "widthSize:" + width + ",heightSize:" + height);
+//        Log.d("TAG", "widthSize:" + width + ",heightSize:" + height);
         left = getPaddingLeft();
         right = getPaddingRight();
         top = getPaddingTop();
@@ -110,9 +110,9 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager implements Tot
             int leftMargin = params.leftMargin;
             int bottomMargin = params.bottomMargin;
             int topMargin = params.topMargin;
-            Log.d("TAG", "rightMargin:" + rightMargin + ",leftMargin:" + leftMargin + ",bottomMargin:" + bottomMargin + ",topMargin:" + topMargin);
-            Log.d("TAG", "childWidth:" + childWidth);
-            Log.d("TAG", "childHeight:" + childHeight);
+//            Log.d("TAG", "rightMargin:" + rightMargin + ",leftMargin:" + leftMargin + ",bottomMargin:" + bottomMargin + ",topMargin:" + topMargin);
+//            Log.d("TAG", "childWidth:" + childWidth);
+//            Log.d("TAG", "childHeight:" + childHeight);
             int childUseWidth = childWidth + leftMargin + rightMargin;
             int childUseHeight = childHeight + topMargin + bottomMargin;
             //如果加上当前的item还小于最大的宽度的话
@@ -132,7 +132,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager implements Tot
                 totalHeight += maxHeightItem;
                 itemTop = cuLineTop + topMargin;
                 itemLeft = left + leftMargin;
-                Log.d("TAG", "itemTop:" + itemTop);
+//                Log.d("TAG", "itemTop:" + itemTop);
                 layoutDecoratedWithMargins(childAt, itemLeft, itemTop, itemLeft + childWidth, itemTop + childHeight);
                 cuLineWidth = childUseWidth;
                 maxHeightItem = childUseHeight;

@@ -166,9 +166,52 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
         return false;
     }
 
+    boolean pullDown;
+
+
     @Override
-    public void onSwiped() {
+    public void onSwiped(boolean pullDown) {
         Log.d(TAG, "onSwiped");
         scrollY = 0;
+        this.pullDown = pullDown;
+    }
+
+
+    public void pullScroll() {
+        Log.d(TAG, "pullScroll");
+        if (pullDown) {
+            getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    ViewHolder vh = sr.getChildViewHolder(parent);
+                    if (vh.getAdapterPosition() == 0) {
+                        LayoutManager lm = getLayoutManager();
+                        TotalHeightLayoutManager tl = (TotalHeightLayoutManager) lm;
+                        Log.d(TAG, "tl.getTotalHeight() :" + tl.getTotalHeight());
+                        Log.d(TAG, "getHeight() :" + getHeight());
+                        if (tl.getTotalHeight() > getHeight()) {
+                            Log.d(TAG, "scrollTo:" + (tl.getTotalHeight() - getHeight()));
+                            scrollBy(0, tl.getTotalHeight() - getHeight());
+                        }
+                    }
+                }
+            });
+        }
+
+
+    }
+
+    public void pullNextScroll() {
+        Log.d(TAG, "pullNextScroll");
+        LayoutManager lm = getLayoutManager();
+        TotalHeightLayoutManager tl = (TotalHeightLayoutManager) lm;
+        Log.d(TAG, "tl.getTotalHeight() :" + tl.getTotalHeight());
+        Log.d(TAG, "getHeight() :" + getHeight());
+        if (tl.getTotalHeight() > getHeight()) {
+            Log.d(TAG, "scrollTo:" + (tl.getTotalHeight() - getHeight()));
+            scrollBy(0, tl.getTotalHeight() - getHeight());
+        }
+
     }
 }

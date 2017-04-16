@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import java.util.List;
 
 class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final String TAG = FlowAdapter.class.getSimpleName();
     List<ChuShouScrollActivity.ShowItem> arrays;
     Context context;
 
@@ -31,6 +33,7 @@ class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder:" + position);
         TextView textView = ((MyHolder) holder).text;
         textView.setBackgroundDrawable(getBack(arrays.get(position).color));
         textView.setText(arrays.get(position).des);

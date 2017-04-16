@@ -29,6 +29,7 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        Log.d(TAG, "onCreateViewHolder");
         return new MyHolder<ChuShouScrollActivity.ShowItem>(View.inflate(context, R.layout.scroll_item_layout, null), context) {
             @Override
             protected RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter(List<ChuShouScrollActivity.ShowItem> list, Context context) {
@@ -44,8 +45,9 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Log.d("ChuShouScrollAdapter", "onBindViewHolder:" + position);
+        Log.d(TAG, "onBindViewHolder:" + position);
         List<ChuShouScrollActivity.ShowItem> showItems = maps.get(position);
+        Log.d(TAG, "position:" + position + "--" + showItems.size());
         ((MyHolder) holder).refreshData(showItems);
     }
 

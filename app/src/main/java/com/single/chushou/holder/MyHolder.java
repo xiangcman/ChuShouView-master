@@ -29,18 +29,40 @@ public abstract class MyHolder<T> extends RecyclerView.ViewHolder {
         this.context = context;
     }
 
+    RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = null;
+
+    RecyclerView.LayoutManager layoutManager = null;
+
 
     public void refreshData(List<T> showItems) {
-        Log.d(TAG, "flowAdapter is null");
+
+
+//        container.pullScroll(scroll);
+
+//        if (adapter == null) {
         ViewGroup.LayoutParams ls = container.getLayoutParams();
         ls.width = context.getResources().getDisplayMetrics().widthPixels;
         ls.height = context.getResources().getDisplayMetrics().heightPixels - 50;
         container.setLayoutParams(ls);
-        RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = null;
+        Log.d(TAG, "flowAdapter is null");
         this.showItems = showItems;
         adapter = getAdapter(this.showItems, context);
+        layoutManager = getLayoutManager(context, adapter);
         container.setLayoutManager(getLayoutManager(context, adapter));
         container.setAdapter(adapter);
+        container.pullScroll();
+//        } else {
+//            Log.d(TAG, "flowAdapter is not null");
+//            Log.d(TAG, "showItems.size:" + showItems.size());
+//            this.showItems.clear();
+//            this.showItems.addAll(showItems);
+////            adapter = getAdapter(this.showItems, context);
+////            container.setLayoutManager(getLayoutManager(context, adapter));
+////            adapter.notifyItemChanged(0, this.showItems.size() - 1);
+//            container.setLayoutManager(layoutManager);
+//            adapter.notifyDataSetChanged();
+////            container.setLayoutManager(getLayoutManager(context, adapter));
+//        }
     }
 
     protected abstract RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter(List<T> list, Context context);
