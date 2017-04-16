@@ -69,5 +69,4 @@ public class ChuShouGridItemAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         return list.size();
     }
 
-
 }

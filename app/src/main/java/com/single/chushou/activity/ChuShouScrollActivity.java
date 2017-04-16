@@ -42,7 +42,6 @@ public class ChuShouScrollActivity extends Activity {
         chuShouView.setChuShouCallBack(callback);
     }
 
-
     public static class ShowItem {
         public int color;
         public String des;

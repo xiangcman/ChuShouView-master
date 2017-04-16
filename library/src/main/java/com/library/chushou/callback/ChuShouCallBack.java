@@ -44,7 +44,6 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         this.onSwipedListener = onSwipedListener;
     }
 
-
     public ChuShouCallBack(RecyclerView.Adapter adapter, List mDatas) {
         this(adapter, mDatas, 0);
     }
@@ -126,7 +125,9 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
             View childAt = ((ViewGroup) nextView).getChildAt(0);
             if (childAt instanceof SlideRecyclerView) {
                 SlideRecyclerView sl = (SlideRecyclerView) childAt;
-                sl.pullNextScroll();
+                if (sl.getScrollY() == 0) {
+                    sl.pullNextScroll();
+                }
             }
             pullDown = true;
         } else {
