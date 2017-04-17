@@ -1,5 +1,7 @@
 前几天在看手机直播的时候，自己就用上了触手app。一进到主页就看上了里面页面切换的效果，自己想这种效果用什么控件可以实现呢。触手app主页效果图:
+
 ![触手app主页效果.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/触手app主页效果.gif)
+
 看到这个效果图后，第一想到的就是`RecyclerView`貌似可以实现这种效果，但是用`RecyclerView`自己的api还是有很多问题的，先不说如何实现的吧，看下实现出来的效果图吧:
 
 **图片式:**
@@ -18,6 +20,7 @@
 下面就来讲讲如何用`RecyclerView`如何实现上面的效果了:
 
 来张自己画的思路草图吧:
+
 ![草图.png](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/草图.png)
 
 **这里整体就是一个`RecyclerView`了，而且在初始的时候，需要定义我们自己的`Layoutmanager`，代码里面可见(`ChuShouManager`)该类,该`Layoutmanager`的功能就是让最后一个item在屏幕的上面显示，第一个item在屏幕中显示，第二个item到倒数第二个item在屏幕的下面显示。所以手机上面显示的永远是`RecyclerView`中第一个item了，只不过在手指滑动的时候，去改变数据源。**
