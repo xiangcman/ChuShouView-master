@@ -38,18 +38,18 @@ public class ChuShouGridActivity extends Activity {
     }
 
     public static class GridItem {
-        public int img;
+        public String img;
         public String des;
 
-        public int img1;
+        public String img1;
         public String des1;
 
-        public GridItem(int img, String des) {
+        public GridItem(String img, String des) {
             this.img = img;
             this.des = des;
         }
 
-        public GridItem(int img, String des, int img1, String des1) {
+        public GridItem(String img, String des, String img1, String des1) {
             this.img = img;
             this.des = des;
             this.img1 = img1;

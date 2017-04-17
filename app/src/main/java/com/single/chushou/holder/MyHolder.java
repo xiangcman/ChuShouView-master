@@ -3,7 +3,6 @@ package com.single.chushou.holder;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.library.chushou.view.SlideRecyclerView;
 import com.single.chushou.R;
@@ -29,10 +28,6 @@ public abstract class MyHolder<T> extends RecyclerView.ViewHolder {
     }
 
     public void refreshData(List<T> showItems) {
-        ViewGroup.LayoutParams ls = container.getLayoutParams();
-        ls.width = context.getResources().getDisplayMetrics().widthPixels;
-        ls.height = context.getResources().getDisplayMetrics().heightPixels - 50;
-        container.setLayoutParams(ls);
         this.showItems = showItems;
         RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = getAdapter(this.showItems, context);
         layoutManager = getLayoutManager(context, adapter);

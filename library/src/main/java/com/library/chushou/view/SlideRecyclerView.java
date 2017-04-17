@@ -31,6 +31,9 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
 
     ViewGroup parent;
 
+    //是否下拉的标志
+    boolean pullDown;
+
     public SlideRecyclerView(Context context) {
         this(context, null);
     }
@@ -166,9 +169,6 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
         return false;
     }
 
-    boolean pullDown;
-
-
     @Override
     public void onSwiped(boolean pullDown) {
         Log.d(TAG, "onSwiped");
@@ -176,7 +176,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
         this.pullDown = pullDown;
     }
 
-
+    //处理下拉的时候onswipe完成后滑动到底部的操作
     public void pullScroll() {
         Log.d(TAG, "pullScroll");
         if (pullDown) {
@@ -198,10 +198,9 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                 }
             });
         }
-
-
     }
 
+    //处理ChuShouCallBack下拉onChildDraw动作，让当前item直接滑动到底部的操作
     public void pullNextScroll() {
         Log.d(TAG, "pullNextScroll");
         LayoutManager lm = getLayoutManager();
@@ -212,6 +211,5 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
             Log.d(TAG, "scrollTo:" + (tl.getTotalHeight() - getHeight()));
             scrollBy(0, tl.getTotalHeight() - getHeight());
         }
-
     }
 }

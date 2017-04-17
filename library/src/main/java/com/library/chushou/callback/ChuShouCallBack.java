@@ -90,7 +90,6 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
         viewHolder.itemView.setAlpha(1);
         ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(1);
         ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(1);
-        Object temp;
         if (pullDown) {
             //将上面移动的进行还原
             nextView.setTranslationY(-height);
@@ -110,15 +109,17 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
      */
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+       // super.onChildDraw(c,recyclerView,viewHolder,dX,dY,actionState,isCurrentlyActive);这里就不要执行父类的该方法了,执行后就会让当前item随手势移动了，这样就不是我们想要的效果了
         if (height == 0) {
+            Log.d(TAG, "height is 0");
             height = recyclerView.getHeight();
         }
+        Log.d(TAG, "dy:" + dY);
         float percent = Math.abs(dY / height);
-        float alpha = (float) (1.0 - percent * 1.0);
-        float scale = (float) (1.0 - percent * 1.0);
-        viewHolder.itemView.setAlpha(alpha);
-        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(scale);
-        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(scale);
+        float scaleAlpha = (float) (1.0 - percent * 1.0);
+        viewHolder.itemView.setAlpha(scaleAlpha);
+        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(scaleAlpha);
+        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(scaleAlpha);
         //往下拉
         if (dY > 0) {
             nextView = recyclerView.getChildAt(recyclerView.getChildCount() - 1);

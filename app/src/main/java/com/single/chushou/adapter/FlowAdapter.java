@@ -32,7 +32,7 @@ class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder:" + position);
         TextView textView = ((MyHolder) holder).text;
         textView.setBackgroundDrawable(getBack(arrays.get(position).color));

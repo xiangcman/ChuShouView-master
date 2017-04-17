@@ -2,10 +2,12 @@ package com.single.chushou.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.single.chushou.R;
 
 import java.util.List;
@@ -15,7 +17,8 @@ import java.util.List;
  */
 
 public class ChuShouAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<Integer> maps;
+    private static final String TAG = ChuShouAdapter.class.getSimpleName();
+    private List<String> maps;
     private Context context;
 
     public ChuShouAdapter(Context context, List maps) {
@@ -25,12 +28,14 @@ public class ChuShouAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder");
         return new MyHolder(View.inflate(context, R.layout.item_layout, null));
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((MyHolder) holder).img.setImageResource(maps.get(position));
+        Log.d(TAG, "onBindViewHolder");
+        Glide.with(context).load(maps.get(position)).into(((MyHolder) holder).img);
     }
 
     @Override

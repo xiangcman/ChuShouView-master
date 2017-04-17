@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.single.chushou.R;
 import com.single.chushou.activity.ChuShouGridActivity;
 import com.single.chushou.holder.DoubleHolder;
@@ -53,13 +54,13 @@ public class ChuShouGridItemAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         ChuShouGridActivity.GridItem gridItem = list.get(position);
         if (holder instanceof DoubleHolder) {
             DoubleHolder dh = (DoubleHolder) holder;
-            dh.leftImg.setBackgroundResource(gridItem.img);
-            dh.rightImg.setBackgroundResource(gridItem.img1);
+            Glide.with(context).load(gridItem.img).into(dh.leftImg);
+            Glide.with(context).load(gridItem.img1).into(dh.rightImg);
             dh.leftText.setText(gridItem.des);
             dh.rightText.setText(gridItem.des1);
         } else {
             SingleHolder dh = (SingleHolder) holder;
-            dh.img.setBackgroundResource(gridItem.img);
+            Glide.with(context).load(gridItem.img).into(dh.img);
             dh.text.setText(gridItem.des);
         }
     }

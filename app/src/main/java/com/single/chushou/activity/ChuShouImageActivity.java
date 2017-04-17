@@ -18,7 +18,11 @@ import java.util.List;
  */
 public class ChuShouImageActivity extends Activity {
 
-    private List<Integer> maps = Arrays.asList(R.mipmap.chushou1, R.mipmap.chushou2, R.mipmap.chushou3, R.mipmap.chushou4);
+    private List<String> maps = Arrays.asList("http://imgb.mumayi.com/android/img_mumayi/2016/05/30/109/1093874/nologo/nologo_pic_994333_417f38.jpg",
+            "http://imgb.mumayi.com/android/img_mumayi/2016/05/30/109/1093874/nologo/nologo_pic_994333_3a8e9d.jpg",
+            "http://imga.mumayi.com/android/img_mumayi/2016/05/30/109/1093874/nologo/nologo_pic_994333_2aafe9.jpg",
+            "http://imgb.mumayi.com/android/img_mumayi/2016/05/30/109/1093874/nologo/nologo_pic_994333_17d15a.jpg",
+            "http://imgb.mumayi.com/android/img_mumayi/2016/05/30/109/1093874/nologo/nologo_pic_994333_01cb78.jpg");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
