@@ -59,8 +59,6 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                         @Override
                         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                             super.onScrolled(recyclerView, dx, dy);
-                            Log.d(TAG, "position:" + sr.getChildViewHolder(parent).getAdapterPosition());
-                            Log.d(TAG, "onScrolled:" + dy);
                             scrollY += dy;
                             Log.d(TAG, "scrollY:" + scrollY);
                             if (scrollY == 0) {
@@ -86,15 +84,16 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
     private float dataY;
 
     @Override
-    public boolean onTouchEvent(MotionEvent e) {
-
+    public boolean onInterceptTouchEvent(MotionEvent e) {
         if (getIsCurrentItem()) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    Log.d(TAG, "MotionEvent.ACTION_DOWN");
                     startY = e.getY();
                     chuShouCallBack.setDefaultSwipeDirs(0);
                     break;
                 case MotionEvent.ACTION_MOVE:
+                    Log.d(TAG, "MotionEvent.ACTION_MOVE");
                     dataY = e.getY() - startY;
                     //只有滑动到顶部的时候才会通过判断两点之间的距离来切换item
                     if (scrollY == 0) {
@@ -119,7 +118,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                     break;
             }
         }
-        return super.onTouchEvent(e);
+        return super.onInterceptTouchEvent(e);
     }
 
     /**
@@ -179,7 +178,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
 
     //处理下拉的时候onswipe完成后滑动到底部的操作
     public void pullScroll() {
-        Log.d(TAG, "pullScroll");
+//        Log.d(TAG, "pullScroll");
         if (pullDown) {
             getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override

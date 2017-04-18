@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.single.chushou.R;
@@ -51,17 +52,35 @@ public class ChuShouGridItemAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder:" + position);
-        ChuShouGridActivity.GridItem gridItem = list.get(position);
+        final ChuShouGridActivity.GridItem gridItem = list.get(position);
         if (holder instanceof DoubleHolder) {
             DoubleHolder dh = (DoubleHolder) holder;
             Glide.with(context).load(gridItem.img).into(dh.leftImg);
             Glide.with(context).load(gridItem.img1).into(dh.rightImg);
             dh.leftText.setText(gridItem.des);
             dh.rightText.setText(gridItem.des1);
+            dh.leftImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, gridItem.des, Toast.LENGTH_SHORT).show();
+                }
+            });
+            dh.rightImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, gridItem.des1, Toast.LENGTH_SHORT).show();
+                }
+            });
         } else {
             SingleHolder dh = (SingleHolder) holder;
             Glide.with(context).load(gridItem.img).into(dh.img);
             dh.text.setText(gridItem.des);
+            dh.img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, gridItem.des, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
