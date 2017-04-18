@@ -1,5 +1,8 @@
 package com.library.chushou.callback;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -60,7 +63,7 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-        Log.d(TAG, "onMove");
+//        Log.d(TAG, "onMove");
         return true;
     }
 
@@ -74,6 +77,7 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         Log.d(TAG, "onSwiped");
+        lastDy = 0;
         refreshData(viewHolder);
         if (onSwipedListener != null) {
             onSwipedListener.onSwiped(pullDown);
@@ -104,38 +108,84 @@ public class ChuShouCallBack extends ItemTouchHelper.SimpleCallback {
 
     }
 
+    //add  2017/4/17，为了解决换手指的bug，保存上一次拉到的位置
+    private float lastDy;
+    //add  2017/4/17，为了解决换手指的bug，当松手指的时候用到的值动画
+    ValueAnimator valueAnimator;
+
     /**
      * 监听recyclerView切换item的事件
      */
     @Override
-    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-       // super.onChildDraw(c,recyclerView,viewHolder,dX,dY,actionState,isCurrentlyActive);这里就不要执行父类的该方法了,执行后就会让当前item随手势移动了，这样就不是我们想要的效果了
+    public void onChildDraw(Canvas c, RecyclerView recyclerView, final RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        // super.onChildDraw(c,recyclerView,viewHolder,dX,dY,actionState,isCurrentlyActive);这里就不要执行父类的该方法了,执行后就会让当前item随手势移动了，这样就不是我们想要的效果了
         if (height == 0) {
-            Log.d(TAG, "height is 0");
             height = recyclerView.getHeight();
         }
         Log.d(TAG, "dy:" + dY);
-        float percent = Math.abs(dY / height);
-        float scaleAlpha = (float) (1.0 - percent * 1.0);
-        viewHolder.itemView.setAlpha(scaleAlpha);
-        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(scaleAlpha);
-        ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(scaleAlpha);
-        //往下拉
-        if (dY > 0) {
-            nextView = recyclerView.getChildAt(recyclerView.getChildCount() - 1);
-            View childAt = ((ViewGroup) nextView).getChildAt(0);
-            if (childAt instanceof SlideRecyclerView) {
-                SlideRecyclerView sl = (SlideRecyclerView) childAt;
-                if (sl.getScrollY() == 0) {
-                    sl.pullNextScroll();
+        Log.d(TAG, "lastDy:" + lastDy);
+        //add  2017/4/17，此时换了手指再去按住nextView，如果是下拉时：lastDy > 0 && dY <= 0，如果是上拉时：lastDy < 0 && dY >= 0
+        if (lastDy > 0 && dY <= 0 || lastDy < 0 && dY >= 0) {
+            //这个是当松手时isCurrentlyActive=false
+            if (!isCurrentlyActive) {
+                if (valueAnimator == null) {
+                    //从松手一瞬间，从lastDy的位置到0
+                    valueAnimator = ValueAnimator.ofFloat(lastDy, 0);
+                    //这里的下拉或上拉的最大距离是按照swipe的临界值来算的
+                    float maxPullHeight = height * getSwipeThreshold(viewHolder);
+                    //最长的时间是200毫秒
+                    float duration = 200 * (Math.abs(lastDy) / maxPullHeight);
+                    valueAnimator.setDuration((long) duration);
+                    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animation) {
+                            float animatedValue = (float) animation.getAnimatedValue();
+                            float percent = Math.abs(animatedValue / height);
+                            float scaleAlpha = (float) (1.0 - percent * 1.0);
+                            viewHolder.itemView.setAlpha(scaleAlpha);
+                            ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(scaleAlpha);
+                            ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(scaleAlpha);
+                            nextView.setTranslationY(animatedValue);
+                        }
+                    });
+                    valueAnimator.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            lastDy = 0;
+                            valueAnimator = null;
+                        }
+                    });
+                    valueAnimator.start();
                 }
             }
-            pullDown = true;
-        } else {
-            nextView = recyclerView.getChildAt(1);
-            pullDown = false;
-        }
-        nextView.setTranslationY(dY);
-    }
 
+        } else {
+            //该种情况就是没有换手指的情况
+            Log.d(TAG, "normal");
+            float percent = Math.abs(dY / height);
+            float scaleAlpha = (float) (1.0 - percent * 1.0);
+            viewHolder.itemView.setAlpha(scaleAlpha);
+            ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleX(scaleAlpha);
+            ((ViewGroup) viewHolder.itemView).getChildAt(0).setScaleY(scaleAlpha);
+            //往下拉
+            if (dY > 0) {
+                nextView = recyclerView.getChildAt(recyclerView.getChildCount() - 1);
+                View childAt = ((ViewGroup) nextView).getChildAt(0);
+                if (childAt instanceof SlideRecyclerView) {
+                    SlideRecyclerView sl = (SlideRecyclerView) childAt;
+                    if (sl.getScrollY() == 0) {
+                        sl.pullNextScroll();
+                    }
+                }
+                nextView.setTranslationY(dY);
+                pullDown = true;
+                lastDy = dY;
+            } else if (dY < 0) {
+                nextView = recyclerView.getChildAt(1);
+                pullDown = false;
+                nextView.setTranslationY(dY);
+                lastDy = dY;
+            }
+        }
+    }
 }

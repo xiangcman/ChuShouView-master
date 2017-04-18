@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.single.chushou.R;
 import com.single.chushou.activity.ChuShouScrollActivity;
@@ -37,6 +38,12 @@ class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView textView = ((MyHolder) holder).text;
         textView.setBackgroundDrawable(getBack(arrays.get(position).color));
         textView.setText(arrays.get(position).des);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, arrays.get(position).des, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private Drawable getBack(int color) {

@@ -87,6 +87,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
+
         if (getIsCurrentItem()) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
