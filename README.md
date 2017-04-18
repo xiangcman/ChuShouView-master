@@ -609,7 +609,7 @@ public void onChildDraw(Canvas c, RecyclerView recyclerView, final RecyclerView.
 ### 后续添加:
 滑动控件还会有`ListView`、`ScrollView`等
 
-###gradle依赖:
+### gradle依赖:
 ```java
 allprojects {
     repositories {
