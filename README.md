@@ -594,6 +594,16 @@ public void onChildDraw(Canvas c, RecyclerView recyclerView, final RecyclerView.
 }
 ```
 
+**bug修复问题:**
+
+**<解决item里面加点击事件后,父RecyclerView接收不到ontouch事件,导致还没滑动到底部的时候就会切换页面>**
+
+**改动:**将`SlideRecyclerView`中`ontouch`的操作放到`onInterceptTouchEvent`中
+
+**如下图:**
+
+![bug对比图.png](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/添加点击事件后，解决bug的对比图.png)
+
 ### 后续添加:
 滑动控件还会有`ListView`、`ScrollView`等
 
