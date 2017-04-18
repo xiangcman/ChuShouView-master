@@ -609,6 +609,22 @@ public void onChildDraw(Canvas c, RecyclerView recyclerView, final RecyclerView.
 ### 后续添加:
 滑动控件还会有`ListView`、`ScrollView`等
 
+###gradle依赖:
+```java
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+        ...
+        compile 'com.github.1002326270xc:ChuShouView-master:v1.0'
+        ...
+}
+```
+
 ### 关于我:
 **email:** a1002326270@163.com
 
