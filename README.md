@@ -598,7 +598,9 @@ public void onChildDraw(Canvas c, RecyclerView recyclerView, final RecyclerView.
 
 **<解决item里面加点击事件后,父RecyclerView接收不到ontouch事件,导致还没滑动到底部的时候就会切换页面>**
 
-**改动:**将`SlideRecyclerView`中`ontouch`的操作放到`onInterceptTouchEvent`中
+**改动:**
+
+将`SlideRecyclerView`中`ontouch`的操作放到`onInterceptTouchEvent`中
 
 **如下图:**
 
