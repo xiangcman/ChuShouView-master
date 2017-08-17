@@ -16,7 +16,7 @@
 
 ![多种样式效果图.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/多种样式效果图.gif)
 
-###教你一分钟搞定如何使用:
+### 教你一分钟搞定如何使用:
 
 **设置Manager:**
 
