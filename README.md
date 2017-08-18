@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/1002326270xc/ChuShouView-master.svg)](https://jitpack.io/#1002326270xc/ChuShouView-master/v1.0)
 
-触手app主页效果图:
+触手app主页效果图,新版已经改版了,大家请下载[2.2.3.7424]():
 
 ![触手app主页效果.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/触手app主页效果.gif)
 
