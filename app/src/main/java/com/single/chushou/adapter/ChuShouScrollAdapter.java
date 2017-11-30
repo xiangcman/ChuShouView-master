@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.single.chushou.ItemDecoration.SpaceItemDecoration;
 import com.single.chushou.R;
 import com.single.chushou.activity.ChuShouScrollActivity;
 import com.single.chushou.holder.MyHolder;
@@ -29,7 +30,6 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        Log.d(TAG, "onCreateViewHolder");
         return new MyHolder<ChuShouScrollActivity.ShowItem>(View.inflate(context, R.layout.scroll_item_layout, null), context) {
             @Override
             protected RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter(List<ChuShouScrollActivity.ShowItem> list, Context context) {
@@ -39,6 +39,11 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
             @Override
             protected RecyclerView.LayoutManager getLayoutManager(Context context, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
                 return new FlowLayoutManager();
+            }
+
+            @Override
+            public RecyclerView.ItemDecoration getItemDecoration() {
+                return new SpaceItemDecoration(20);
             }
         };
     }

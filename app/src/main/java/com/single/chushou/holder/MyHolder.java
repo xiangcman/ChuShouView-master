@@ -16,7 +16,6 @@ import java.util.List;
 
 public abstract class MyHolder<T> extends RecyclerView.ViewHolder {
     private static final String TAG = MyHolder.class.getSimpleName();
-    RecyclerView.LayoutManager layoutManager = null;
     SlideRecyclerView container;
     List<T> showItems;
     private Context context;
@@ -27,11 +26,16 @@ public abstract class MyHolder<T> extends RecyclerView.ViewHolder {
         this.context = context;
     }
 
+    RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
+
     public void refreshData(List<T> showItems) {
         this.showItems = showItems;
-        RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = getAdapter(this.showItems, context);
-        layoutManager = getLayoutManager(context, adapter);
+        if (getItemDecoration() != null && adapter == null) {
+            container.addItemDecoration(getItemDecoration());
+        }
+        adapter = getAdapter(this.showItems, context);
         container.setLayoutManager(getLayoutManager(context, adapter));
+
         container.setAdapter(adapter);
         container.pullScroll();
     }
@@ -39,4 +43,8 @@ public abstract class MyHolder<T> extends RecyclerView.ViewHolder {
     protected abstract RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter(List<T> list, Context context);
 
     protected abstract RecyclerView.LayoutManager getLayoutManager(Context context, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter);
+
+    public RecyclerView.ItemDecoration getItemDecoration() {
+        return null;
+    }
 }
