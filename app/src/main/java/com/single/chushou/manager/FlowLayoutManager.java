@@ -31,7 +31,8 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager implements Tot
 
     @Override
     public int getTotalHeight() {
-        return totalHeight;
+
+        return totalHeight + getPaddingTop() + getPaddingBottom();
     }
 
     //计算显示的内容的高度

@@ -84,7 +84,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
     private float dataY;
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent e) {
+    public boolean dispatchTouchEvent(MotionEvent e) {
         if (getIsCurrentItem()) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
@@ -118,7 +118,7 @@ public class SlideRecyclerView extends RecyclerView implements ChuShouCallBack.O
                     break;
             }
         }
-        return super.onInterceptTouchEvent(e);
+        return super.dispatchTouchEvent(e);
     }
 
     /**
