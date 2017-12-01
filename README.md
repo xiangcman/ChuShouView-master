@@ -8,17 +8,11 @@
 
 看下实现出来的效果图吧:
 
-**图片式:**
-
-![图片式效果图.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/图片式效果图.gif)
-
-**流式布局效果:**
-
-![流式布局效果图.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/流式布局效果图.gif)
-
-**多种样式效果:**
-
-![多种样式效果图.gif](https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/多种样式效果图.gif)
+<div>
+    <image src="https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/图片式效果图.gif" width="250"/>
+    <image hspace="20" src="https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/流式布局效果图.gif" width="250"/>
+    <image src="https://github.com/1002326270xc/ChuShouView-master/blob/master/photos/多种样式效果图.gif" width="250"/>
+</div>
 
 ### 教你一分钟搞定如何使用:
 
