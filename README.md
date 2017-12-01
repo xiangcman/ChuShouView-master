@@ -31,19 +31,19 @@ ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
 itemTouchHelper.attachToRecyclerView(chuShouView);
 ```
 
-**图片式设置Adapter:**
+**图一设置Adapter:**
 
 ```
 chuShouView.setAdapter(adapter = new ChuShouAdapter(this, maps));
 ```
 
-**流式布局式设置Adapter:**
+**图二设置Adapter:**
 
 ```
 chuShouView.setAdapter(adapter = new ChuShouScrollAdapter(this, items));
 ```
 
-**多种样式设置Adapter:**
+**图三设置Adapter:**
 
 ```
 chuShouView.setAdapter(chuShouGridAdapter = new ChuShouGridAdapter(this, gridItems));
