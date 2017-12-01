@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/1002326270xc/ChuShouView-master.svg)](https://jitpack.io/#1002326270xc/ChuShouView-master/v1.0)
+[![](https://jitpack.io/v/1002326270xc/ChuShouView-master.svg)](https://jitpack.io/#1002326270xc/ChuShouView-master/v1.3)
 
 触手app新版已经改版了,大家请下载[2.2.3.7424](http://download.csdn.net/download/u010429219/9941988):
 
@@ -114,6 +114,11 @@ public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType
 ### 后续添加:
 滑动控件还会有`ListView`、`ScrollView`等
 
+**欢迎客官到本店光临:**`184793647`(qq群)
+
+**v1.3版本:**
+修复触摸问题
+
 ### gradle依赖:
 ```java
 allprojects {
@@ -125,7 +130,7 @@ allprojects {
 
 dependencies {
         ...
-        compile 'com.github.1002326270xc:ChuShouView-master:v1.0'
+        compile 'com.github.1002326270xc:ChuShouView-master:v1.3'
         ...
 }
 ```
