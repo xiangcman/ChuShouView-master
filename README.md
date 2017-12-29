@@ -81,11 +81,12 @@ public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType
         }
         @Override
         protected RecyclerView.LayoutManager getLayoutManager(Context context, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
-            return new FlowLayoutManager();
+            return new MyFlowLayoutManager();
         }
     };
 }
 ```
+这里流式布局，用到我的另外一个库[LayoutManager-FlowLayout](https://github.com/1002326270xc/LayoutManager-FlowLayout/tree/master)
 
 **R.layout.scroll_item_layout代码:**
 

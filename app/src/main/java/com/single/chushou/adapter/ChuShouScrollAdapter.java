@@ -3,6 +3,7 @@ package com.single.chushou.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,7 +11,7 @@ import com.single.chushou.ItemDecoration.SpaceItemDecoration;
 import com.single.chushou.R;
 import com.single.chushou.activity.ChuShouScrollActivity;
 import com.single.chushou.holder.MyHolder;
-import com.single.chushou.manager.FlowLayoutManager;
+import com.single.chushou.manager.MyFlowLayoutManager;
 
 import java.util.List;
 
@@ -38,12 +39,12 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
 
             @Override
             protected RecyclerView.LayoutManager getLayoutManager(Context context, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
-                return new FlowLayoutManager();
+                return new MyFlowLayoutManager();
             }
 
             @Override
             public RecyclerView.ItemDecoration getItemDecoration() {
-                return new SpaceItemDecoration(20);
+                return new SpaceItemDecoration(dp2px(10));
             }
         };
     }
@@ -59,6 +60,10 @@ public class ChuShouScrollAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public int getItemCount() {
         return maps.size();
+    }
+
+    private int dp2px(float value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, context.getResources().getDisplayMetrics());
     }
 
 }
