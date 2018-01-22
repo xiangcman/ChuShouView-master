@@ -22,6 +22,7 @@ public class ChuShouGridActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ScrollRecyclerView chuShouView = (ScrollRecyclerView) findViewById(R.id.chushou_view);
         List<List<GridItem>> gridItems = DataConfig.getGridItems();
 
